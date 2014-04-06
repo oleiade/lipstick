@@ -3,7 +3,7 @@
 
 #include "mpc.h"
 
-typedef struct {
+typedef struct      s_lval {
     int             type;
     long            num;
 
@@ -13,8 +13,8 @@ typedef struct {
 
     /* Count and Pointer to a list of "lval*" */
     int             count;
-    struct lval**   cell;
-} lval;
+    struct s_lval** cell;
+}                   lval;
 
 /* Create Enumeration of Possible lval Types */
 enum {
