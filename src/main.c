@@ -26,7 +26,7 @@ int         main()
         Number, Symbol, Sexpr, Expr, Lispy);
 
         /* Print Version and Exit Information */
-        puts("Lispy Version 0.0.0.0.1");
+        puts("Lispy Version 0.0.1");
         puts("Press Ctrl+c to Exit\n");
 
         /* In a never ending loop */
@@ -38,7 +38,7 @@ int         main()
                 mpc_result_t r;
                 if (mpc_parse("<stdin>", input, Lispy, &r)) {
                         /* On success print and delete the AST */
-                        lval* result = lval_read(r.output);
+                        lval* result = lval_eval(lval_read(r.output));
                         lval_println(result);
                         lval_del(result);
                 } else {
